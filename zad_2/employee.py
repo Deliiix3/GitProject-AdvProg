@@ -1,14 +1,17 @@
+from datetime import date
+
+
 class Employee:
     def __init__(
         self,
-        first_name,
-        last_name,
-        hire_date,
-        birth_date,
-        city,
-        street,
-        zip_code,
-        phone,
+        first_name: str,
+        last_name: str,
+        hire_date: date,
+        birth_date: date,
+        city: str,
+        street: str,
+        zip_code: str,
+        phone: str,
     ):
         self.first_name = first_name
         self.last_name = last_name
@@ -19,11 +22,10 @@ class Employee:
         self.zip_code = zip_code
         self.phone = phone
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             f"Pracownik: {self.first_name} {self.last_name}, "
-            f"zatrudniony: {self.hire_date}, "
-            f"ur. {self.birth_date}, "
+            f"ur. {self.birth_date}, zatrudniony {self.hire_date}, "
             f"adres: {self.street}, {self.zip_code} {self.city}, "
             f"tel. {self.phone}"
         )

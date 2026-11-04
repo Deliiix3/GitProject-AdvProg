@@ -1,11 +1,16 @@
+from datetime import date
+
+from zad_2.library import Library
+
+
 class Book:
     def __init__(
         self,
-        library,
-        publication_date,
-        author_name,
-        author_surname,
-        number_of_pages,
+        library: Library,
+        publication_date: date,
+        author_name: str,
+        author_surname: str,
+        number_of_pages: int,
     ):
         self.library = library
         self.publication_date = publication_date
@@ -13,10 +18,9 @@ class Book:
         self.author_surname = author_surname
         self.number_of_pages = number_of_pages
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             f"Książka: {self.author_name} {self.author_surname}, "
-            f"data wydania: {self.publication_date}, "
-            f"stron: {self.number_of_pages}\n"
+            f"wydana {self.publication_date}, stron: {self.number_of_pages}\n"
             f"    {self.library}"
         )
