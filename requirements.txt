@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+requests
+# analiza zdjęć i kolejka (zadania z /analyze_img)
+opencv-python-headless<5
+numpy
+pika
