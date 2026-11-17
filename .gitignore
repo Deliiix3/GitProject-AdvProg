@@ -1,0 +1,4 @@
+__pycache__/
+jobs.csv
+jobs.csv.lock
+jobs.csv.tmp
