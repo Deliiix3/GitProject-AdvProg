@@ -12,5 +12,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pycodestyle
+      - run: pip install pycodestyle pytest
       - run: pycodestyle .
+      - run: pytest
