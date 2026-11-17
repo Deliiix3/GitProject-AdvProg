@@ -1,6 +1,6 @@
 import argparse
 
-from file_queue import add_job
+from db_queue import add_job
 
 
 def main() -> None:

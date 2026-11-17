@@ -2,7 +2,7 @@ import argparse
 import os
 import time
 
-from file_queue import claim_next_job, mark_done
+from db_queue import claim_next_job, mark_done
 
 
 def main() -> None:
@@ -12,7 +12,7 @@ def main() -> None:
         "--work-time", type=float, default=30, help="czas pracy w sekundach"
     )
     parser.add_argument(
-        "--poll-interval", type=float, default=5, help="co ile sprawdzać plik"
+        "--poll-interval", type=float, default=5, help="co ile sprawdzać bazę"
     )
     parser.add_argument(
         "--exit-when-empty",
