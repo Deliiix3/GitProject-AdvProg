@@ -1,6 +1,6 @@
 import argparse
 
-from file_queue import add_job
+from rabbit_queue import add_job
 
 
 def main() -> None:
