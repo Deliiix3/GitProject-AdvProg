@@ -44,8 +44,8 @@ def add_job(description: str) -> dict:
         routing_key=QUEUE_NAME,
         body=json.dumps(job),
         properties=pika.BasicProperties(
-            delivery_mode=pika.DeliveryMode.Persistent,  # zapis wiadomości na dysku
-        ),
+            delivery_mode=pika.DeliveryMode.Persistent,
+        ),  # zapis wiadomości na dysku
     )
     connection.close()
     return job
@@ -63,7 +63,9 @@ def consume_jobs(
 
     if exit_when_empty:
         while True:
-            method_frame, _, body = channel.basic_get(queue=QUEUE_NAME, auto_ack=False)
+            method_frame, _, body = channel.basic_get(
+                queue=QUEUE_NAME, auto_ack=False
+            )
             if method_frame is None:
                 break
             job = json.loads(body.decode("utf-8"))
@@ -77,7 +79,7 @@ def consume_jobs(
         job = json.loads(body.decode("utf-8"))
         job["consumer"] = consumer_name
         work_callback(job)
-        # Potwierdzenie wykonania pracy - dopiero teraz RabbitMQ usuwa ją z kolejki
+        # Potwierdzenie wykonania pracy dopiero teraz RabbitMQ usuwa ją z kolejki
         ch.basic_ack(delivery_tag=method.delivery_tag)
 
     channel.basic_consume(queue=QUEUE_NAME, on_message_callback=on_message)
